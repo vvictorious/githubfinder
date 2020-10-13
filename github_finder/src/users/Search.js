@@ -1,6 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
+import GithubContext from '../context/github/githubContext'
 
 const Search = () => {
+
+    const githubContext = useContext(GithubContext)
 
     const [text, setText] = useState('')
 
@@ -8,11 +11,17 @@ const Search = () => {
         setText(e.target.value)
     }
 
+    const searchGithubUsers = (e) => {
+        e.preventDefault()
+        githubContext.searchUser(text)
+    }
+
     return (
         <div>
-            <form className='form'>
+            <form onSubmit={searchGithubUsers} className='form'>
                 <input 
                     type='text'
+                    placeholder='Search Users'
                     value={text}
                     onChange={change}
                 />
