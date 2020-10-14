@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import GithubContext from '../context/github/githubContext'
 import Spinner from '../layout/Spinner'
+import UserItem from './UserItem'
 
 const Users = () => {
 
@@ -16,7 +17,7 @@ const Users = () => {
         return (
             <div style={userStyle}> 
                 {users.map(user => (
-                    <h1>wassup wit it</h1>
+                    <UserItem user={user} />
                 ))}
             </div>
         )
