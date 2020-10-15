@@ -14,6 +14,7 @@ const Search = () => {
     const searchGithubUsers = (e) => {
         e.preventDefault()
         githubContext.searchUser(text)
+        setText('')
     }
 
     return (
