@@ -28,6 +28,16 @@ export default (state, action) => {
                 ...state,
                 loading: true
             }
+        case 'SET_ALERT':
+                return {
+                    ...state,
+                    alert: action.payload
+                } 
+        case 'REMOVE_ALERT':
+                return  {
+                    ...state,
+                    alert: null 
+                }               
         default:
             return state
     }

@@ -12,7 +12,8 @@ const GithubState = (props) => {
         users: [],
         user: {},
         repos: [],
-        loading: false
+        loading: false,
+        alert: null
     }
 
     const [state, dispatch] = useReducer(GithubReducer, initialState)
@@ -51,7 +52,19 @@ const GithubState = (props) => {
               type: 'GET_REPOS',
               payload: response.data
           })
-      }    
+      }  
+      
+      const setAlert = (msg, type) => {
+        dispatch({
+            type: 'SET_ALERT',
+            payload: { msg, type}
+        })
+        setTimeout( () => {
+          dispatch({
+              type: 'REMOVE_ALERT'              
+          })
+        },3000)
+      }      
 
     const clearUsers = () => {
         dispatch({
@@ -74,10 +87,12 @@ const GithubState = (props) => {
                 user: state.user,
                 loading: state.loading,
                 repos: state.repos,
+                alert: state.alert,
                 searchUser,
                 clearUsers,
                 getUser,
-                getUsersRepos
+                getUsersRepos,
+                setAlert
             }}
         >
             {props.children}

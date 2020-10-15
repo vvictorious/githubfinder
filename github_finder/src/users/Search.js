@@ -13,8 +13,12 @@ const Search = () => {
 
     const searchGithubUsers = (e) => {
         e.preventDefault()
-        githubContext.searchUser(text)
-        setText('')
+        if (text === '') {
+            githubContext.setAlert('Please enter something', 'light')
+        } else {
+            githubContext.searchUser(text)
+            setText('')
+        }
     }
 
     return (

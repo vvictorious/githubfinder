@@ -7,6 +7,7 @@ import User from './users/User'
 import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
+import Alert from './layout/Alert'
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
         <div className="App">
             <Navbar title='Github Finder' icon='fab fa-github' />
             <div className='container'>
+              <Alert />
               <Switch>
                 <Route exact path='/' component={Home}  />  
                 <Route exact path='/about' component={ About } />                
