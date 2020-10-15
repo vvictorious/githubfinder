@@ -11,7 +11,7 @@ const GithubState = (props) => {
     const initialState = {
         users: [],
         user: {},
-        repos: {},
+        repos: [],
         loading: false
     }
 
@@ -73,6 +73,7 @@ const GithubState = (props) => {
                 users: state.users,
                 user: state.user,
                 loading: state.loading,
+                repos: state.repos,
                 searchUser,
                 clearUsers,
                 getUser,

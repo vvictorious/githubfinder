@@ -2,15 +2,17 @@ import React, { useEffect, useContext, Fragment } from 'react'
 import {Link} from 'react-router-dom'
 import GithubContext from '../context/github/githubContext'
 import Spinner from '../layout/Spinner'
+import Repos from '../repos/Repos'
 
 const User = ({match}) => {
 
     const githubContext = useContext(GithubContext)
 
-    const { getUser, loading, user} = githubContext    
+    const { getUser, loading, user, repos, getUsersRepos} = githubContext    
 
     useEffect( () => {
         getUser(match.params.login)
+        getUsersRepos(match.params.login)          
         //eslint-disable-next-line             
     }, [])
 
@@ -78,7 +80,7 @@ const User = ({match}) => {
                 <div className='badge badge-dark'>Public Gists: {public_gists}</div>                                                            
             </div>
 
-
+            <Repos repos={repos} />
         </Fragment>
     )
 }
