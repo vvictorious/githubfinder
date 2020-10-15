@@ -58,6 +58,7 @@ const GithubState = (props) => {
         <GithubContext.Provider  
             value={{
                 users: state.users,
+                user: state.user,
                 loading: state.loading,
                 searchUser,
                 clearUsers,
