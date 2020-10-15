@@ -12,7 +12,7 @@ const Search = () => {
     }
 
     const searchGithubUsers = (e) => {
-        e.preventDefault()
+        e.preventDefault()    
         if (text === '') {
             githubContext.setAlert('Please enter something', 'light')
         } else {
