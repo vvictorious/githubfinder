@@ -29,6 +29,9 @@ const Search = () => {
                     className='btn btn-dark btn-block'
                     type='submit'
                 />
+                {githubContext.users.length > 0 && (
+                    <button className='btn btn-light btn-block' onClick={githubContext.clearUsers} >Clear</button>
+                )}                
             </form>
         </div>
     )
